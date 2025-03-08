@@ -1,7 +1,7 @@
 # Customer Support Intelligence EDA System
 ![Dashboard](https://raw.githubusercontent.com/abh2050/Customer_support_intelligence/main/charts/dashboard.png)
 
-App: https://customersupportintelligence.streamlit.app/
+App: https://customersupportintelligence.streamlit.app/ 
 
 ## Overview
 Customer support has always been a challenging yet crucial aspect of any business—it’s what makes or breaks customer trust. As companies scale, the volume of customer interactions increases exponentially, making efficient customer service a key differentiator.
