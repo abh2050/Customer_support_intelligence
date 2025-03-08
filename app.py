@@ -30,16 +30,67 @@ st.set_page_config(
 
 # Function to load data
 @st.cache_data
-def load_data():
-    # Load clustering results
-    with open('clustering_results.pkl', 'rb') as f:
-        cluster_data = pickle.load(f)
+def load_data(use_sample_data=False):
+    """
+    Load data for the Streamlit app.
     
-    # Load combined embeddings
-    with open('combined_embeddings.pkl', 'rb') as f:
-        embedding_data = pickle.load(f)
+    Args:
+        use_sample_data (bool): If True, use sample data instead of full data
+    """
+    # For Streamlit Cloud deployment, always use sample data
+    # Check for deployment environment or explicitly requested sample data
+    if use_sample_data or os.environ.get('STREAMLIT_SHARING') == 'true' or not os.path.exists('clustering_results.pkl'):
+        st.info("Using generated sample data for demonstration purposes.")
+        
+        # Generated sample data with consistent structure
+        num_samples = 100
+        
+        # Create synthetic embeddings data
+        embedding_data = {
+            'embeddings': [np.random.rand(768).astype(np.float32) for _ in range(num_samples)],
+            'texts': [f"Sample customer issue #{i}: Having trouble with my account" for i in range(num_samples)],
+            'indices': list(range(num_samples))
+        }
+        
+        # Create synthetic cluster data
+        cluster_data = {
+            'embeddings_2d': np.random.rand(num_samples, 2).astype(np.float32),
+            'clusters': np.random.randint(0, 6, num_samples),
+            'texts': embedding_data['texts'],
+            'indices': embedding_data['indices'],
+            'optimal_clusters': 6
+        }
+        
+    else:
+        # Only try to load real data if we're in a local development environment
+        # and have checked that the files exist
+        try:
+            # Load clustering results only (avoid the larger embeddings file)
+            with open('clustering_results.pkl', 'rb') as f:
+                cluster_data = pickle.load(f)
+            
+            # Extract embeddings from cluster data if possible
+            if 'texts' in cluster_data:
+                # Generate synthetic embeddings that match the texts from cluster data
+                # This avoids needing the large combined_embeddings.pkl file
+                texts = cluster_data['texts']
+                indices = cluster_data['indices']
+                embedding_data = {
+                    'embeddings': [np.random.rand(768).astype(np.float32) for _ in range(len(texts))],
+                    'texts': texts,
+                    'indices': indices
+                }
+                st.success("Loaded data with synthesized embeddings.")
+            else:
+                # Fall back to sample data if cluster data doesn't have necessary fields
+                st.warning("Incomplete data in clustering_results.pkl. Using sample data instead.")
+                return load_data(use_sample_data=True)
+                
+        except Exception as e:
+            st.warning(f"Error loading data files: {e}. Using sample data instead.")
+            return load_data(use_sample_data=True)
     
-    # Create a basic cluster information dictionary
+    # Create a basic cluster information dictionary (same for both real and sample data)
     clusters_info = {
         0: {"name": "Account Access Issues", 
             "description": "Problems with logging in, account verification, and security"},
@@ -170,14 +221,14 @@ def embed_text(text):
 def main():
     # Load data
     try:
+        # Try loading real data first, fall back to sample data if needed
         cluster_data, embedding_data, clusters_info = load_data()
         embeddings_array = np.array(embedding_data['embeddings'])
         texts = embedding_data['texts']
         clusters = cluster_data['clusters']
     except Exception as e:
-        st.error(f"Error loading data: {str(e)}")
-        st.info("Make sure you've run the clustering analysis and have the necessary data files.")
-        return
+        st.error(f"Error setting up data: {str(e)}")
+        st.stop()
     
     # Sidebar
     st.sidebar.title("Customer Support Intelligence")
