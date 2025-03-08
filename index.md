@@ -142,7 +142,7 @@ Recommendations
 - **Gemini AI Integration:** Enhanced analysis and recommendations using Google’s Gemini API.
 - **NLP-Based Clustering:** Group customer support tickets using advanced semantic analysis.
 - **Interactive Streamlit UI:** User-friendly interface for exploring and utilizing insights.
-![word Cloud](https://github.com/abh2050/Customer_support_intelligence/blob/main/charts/Work_cloud.png)
+![word Cloud](https://raw.githubusercontent.com/abh2050/Customer_support_intelligence/blob/main/charts/Work_cloud.png)
 
 ## Dataset
 
@@ -232,6 +232,9 @@ Customer issues are clustered using:
 - Sentiment analysis for customer satisfaction tracking.
 - Automated escalation routing based on issue classification.
 - Multi-language support for global customer bases.
+
+## Architecture 
+![](https:/raw.githubusercontent.com/abh2050/Customer_support_intelligence/blob/main/charts/mermaid-diagram-2025-03-08-050513.png)
 
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
