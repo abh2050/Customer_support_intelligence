@@ -231,6 +231,9 @@ Customer issues are clustered using:
 - Automated escalation routing based on issue classification.
 - Multi-language support for global customer bases.
 
+## Architecture Diagram
+![](https://github.com/abh2050/Customer_support_intelligence/blob/main/charts/mermaid-diagram-2025-03-08-050513.png)
+
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
