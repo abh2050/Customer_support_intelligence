@@ -48,6 +48,7 @@ This document presents two sets of data: one for companies with faster response 
 
 ## Companies with Slow Response Times
 
+
 | author_id      | response_count | avg_response_time (mins) | median_response_time (mins) |
 |----------------|----------------|--------------------------|-----------------------------|
 | AWSSupport     | 1034           | 1514.41                  | 151.28                      |
@@ -66,10 +67,6 @@ This document presents two sets of data: one for companies with faster response 
 ![Most Active Companies](https://raw.githubusercontent.com/abh2050/Customer_support_intelligence/main/charts/Top_most_active_companies.png)
 ![Active Customers](https://raw.githubusercontent.com/abh2050/Customer_support_intelligence/main/charts/output.png)
 
----
-layout: default
-title: "Company Metrics"
----
 
 ## Companies with Highest Response Volumes
 
