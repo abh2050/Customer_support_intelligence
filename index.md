@@ -27,82 +27,231 @@ print("Path to dataset files:", path)
 ![Best Response Time](https://raw.githubusercontent.com/abh2050/Customer_support_intelligence/main/charts/top_15_companies_with_avg_response_times.png)
 ![Worst Response Time](https://raw.githubusercontent.com/abh2050/Customer_support_intelligence/main/charts/bottom_response.png)
 
-| author_id       | response_count | avg_response_time | median_response_time |
-|-----------------|---------------|-------------------|----------------------|
-| VerizonSupport  | 17805         | 7.742148         | 3.3                  |
-| LondonMidland   | 6515          | 8.666135         | 4.616667             |
-| nationalrailenq | 4135          | 9.983567         | 5.433333             |
-| AlaskaAir       | 7414          | 10.567955        | 3.5                  |
-| TMobileHelp     | 34229         | 12.058391        | 2.75                 |
-| VirginAmerica   | 2802          | 13.266661        | 3.616667             |
-| AmericanAir     | 36531         | 20.273799        | 10.733333            |
-| SW_Help         | 11775         | 20.880658        | 6.566667             |
-| PearsonSupport  | 824           | 22.958637        | 9.4                  |
-| mediatemplehelp | 302           | 26.494702        | 7.975                |
+# Company Response Time Analysis
 
-Companies with slowest response times:
-shape: (10, 4)
+This document presents two sets of data: one for companies with faster response times and one for companies with slower response times.
+
+## Companies with Fast Response Times
+
+| author_id       | response_count | avg_response_time (mins) | median_response_time (mins) |
+|-----------------|----------------|--------------------------|-----------------------------|
+| VerizonSupport  | 17805          | 7.74                     | 3.30                        |
+| LondonMidland   | 6515           | 8.67                     | 4.62                        |
+| nationalrailenq | 4135           | 9.98                     | 5.43                        |
+| AlaskaAir       | 7414           | 10.57                    | 3.50                        |
+| TMobileHelp     | 34229          | 12.06                    | 2.75                        |
+| VirginAmerica   | 2802           | 13.27                    | 3.62                        |
+| AmericanAir     | 36531          | 20.27                    | 10.73                       |
+| SW_Help         | 11775          | 20.88                    | 6.57                        |
+| PearsonSupport  | 824            | 22.96                    | 9.40                        |
+| mediatemplehelp | 302            | 26.49                    | 7.98                        |
+
+## Companies with Slow Response Times
+
 | author_id      | response_count | avg_response_time (mins) | median_response_time (mins) |
-|---------------|---------------|--------------------------|-----------------------------|
-| AWSSupport     | 1034          | 1514.41                  | 151.28                      |
-| AskRobinhood   | 430           | 1867.25                  | 785.77                      |
-| DunkinDonuts   | 1278          | 1946.27                  | 1331.42                     |
-| DropboxSupport | 5940          | 2036.13                  | 1387.43                     |
-| ArbysCares     | 1904          | 2266.14                  | 1057.63                     |
-| ATVIAssist     | 17518         | 2599.39                  | 362.11                      |
-| airtel_care    | 9866          | 3390.29                  | 693.34                      |
-| askvisa        | 709           | 3397.09                  | 2983.85                     |
-| TfL            | 2218          | 3552.91                  | 37.80                       |
-| SCsupport      | 1250          | 4465.22                  | 3973.38                     |
+|----------------|----------------|--------------------------|-----------------------------|
+| AWSSupport     | 1034           | 1514.41                  | 151.28                      |
+| AskRobinhood   | 430            | 1867.25                  | 785.77                      |
+| DunkinDonuts   | 1278           | 1946.27                  | 1331.42                     |
+| DropboxSupport | 5940           | 2036.13                  | 1387.43                     |
+| ArbysCares     | 1904           | 2266.14                  | 1057.63                     |
+| ATVIAssist     | 17518          | 2599.39                  | 362.11                      |
+| airtel_care    | 9866           | 3390.29                  | 693.34                      |
+| askvisa        | 709            | 3397.09                  | 2983.85                     |
+| TfL            | 2218           | 3552.91                  | 37.80                       |
+| SCsupport      | 1250           | 4465.22                  | 3973.38                     |
+
 ![Response Volume](https://raw.githubusercontent.com/abh2050/Customer_support_intelligence/main/charts/response_volume.png)
 ![Response Volume With Outlier Removed](https://raw.githubusercontent.com/abh2050/Customer_support_intelligence/main/charts/avg_volume_vs_response_time.png)
 ![Most Active Companies](https://raw.githubusercontent.com/abh2050/Customer_support_intelligence/main/charts/Top_most_active_companies.png)
 ![Active Customers](https://raw.githubusercontent.com/abh2050/Customer_support_intelligence/main/charts/output.png)
 
-Companies with highest response volumes:
-shape: (10, 4)
-| author_id       | response_count | avg_response_time (mins) | median_response_time (mins) |
-|----------------|---------------|--------------------------|-----------------------------|
-| AmazonHelp      | 168823        | 40.90                    | 11.47                        |
-| AppleSupport    | 106648        | 147.36                   | 70.97                        |
-| Uber_Support    | 56193         | 95.57                    | 8.87                         |
-| SpotifyCares    | 43206         | 186.85                   | 43.95                        |
-| Delta           | 42149         | 182.52                   | 10.18                        |
-| Tesco           | 38470         | 239.80                   | 96.71                        |
-| AmericanAir     | 36531         | 20.27                    | 10.73                        |
-| TMobileHelp     | 34229         | 12.06                    | 2.75                         |
-| comcastcares    | 32975         | 192.75                   | 29.28                        |
-| British_Airways | 29291         | 253.15                   | 180.50                       |
+---
+layout: default
+title: "Company Metrics"
+---
 
-Top Companies by Tweet Count:
-shape: (10, 2)
-| author_id       | tweet_count |
-|----------------|------------|
-| AmazonHelp      | 169,840    |
-| AppleSupport    | 106,860    |
-| Uber_Support    | 56,270     |
-| SpotifyCares    | 43,265     |
-| Delta           | 42,253     |
-| Tesco           | 38,573     |
-| AmericanAir     | 36,764     |
-| TMobileHelp     | 34,317     |
-| comcastcares    | 33,031     |
-| British_Airways | 29,361     |
+## Companies with Highest Response Volumes
 
-Top Consumers by Tweet Count:
-shape: (10, 2)
-| author_id | tweet_count |
-|-----------|------------|
-| 115911    | 1,286      |
-| 120576    | 1,010      |
-| 115913    | 563        |
-| 116230    | 454        |
-| 169172    | 448        |
-| 117627    | 406        |
-| 115888    | 332        |
-| 116136    | 295        |
-| 116421    | 276        |
-| 115722    | 252        |
+<table>
+  <thead>
+    <tr>
+      <th>author_id</th>
+      <th>response_count</th>
+      <th>avg_response_time (mins)</th>
+      <th>median_response_time (mins)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>AmazonHelp</td>
+      <td>168823</td>
+      <td>40.90</td>
+      <td>11.47</td>
+    </tr>
+    <tr>
+      <td>AppleSupport</td>
+      <td>106648</td>
+      <td>147.36</td>
+      <td>70.97</td>
+    </tr>
+    <tr>
+      <td>Uber_Support</td>
+      <td>56193</td>
+      <td>95.57</td>
+      <td>8.87</td>
+    </tr>
+    <tr>
+      <td>SpotifyCares</td>
+      <td>43206</td>
+      <td>186.85</td>
+      <td>43.95</td>
+    </tr>
+    <tr>
+      <td>Delta</td>
+      <td>42149</td>
+      <td>182.52</td>
+      <td>10.18</td>
+    </tr>
+    <tr>
+      <td>Tesco</td>
+      <td>38470</td>
+      <td>239.80</td>
+      <td>96.71</td>
+    </tr>
+    <tr>
+      <td>AmericanAir</td>
+      <td>36531</td>
+      <td>20.27</td>
+      <td>10.73</td>
+    </tr>
+    <tr>
+      <td>TMobileHelp</td>
+      <td>34229</td>
+      <td>12.06</td>
+      <td>2.75</td>
+    </tr>
+    <tr>
+      <td>comcastcares</td>
+      <td>32975</td>
+      <td>192.75</td>
+      <td>29.28</td>
+    </tr>
+    <tr>
+      <td>British_Airways</td>
+      <td>29291</td>
+      <td>253.15</td>
+      <td>180.50</td>
+    </tr>
+  </tbody>
+</table>
+
+## Top Companies by Tweet Count
+
+<table>
+  <thead>
+    <tr>
+      <th>author_id</th>
+      <th>tweet_count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>AmazonHelp</td>
+      <td>169,840</td>
+    </tr>
+    <tr>
+      <td>AppleSupport</td>
+      <td>106,860</td>
+    </tr>
+    <tr>
+      <td>Uber_Support</td>
+      <td>56,270</td>
+    </tr>
+    <tr>
+      <td>SpotifyCares</td>
+      <td>43,265</td>
+    </tr>
+    <tr>
+      <td>Delta</td>
+      <td>42,253</td>
+    </tr>
+    <tr>
+      <td>Tesco</td>
+      <td>38,573</td>
+    </tr>
+    <tr>
+      <td>AmericanAir</td>
+      <td>36,764</td>
+    </tr>
+    <tr>
+      <td>TMobileHelp</td>
+      <td>34,317</td>
+    </tr>
+    <tr>
+      <td>comcastcares</td>
+      <td>33,031</td>
+    </tr>
+    <tr>
+      <td>British_Airways</td>
+      <td>29,361</td>
+    </tr>
+  </tbody>
+</table>
+
+## Top Consumers by Tweet Count
+
+<table>
+  <thead>
+    <tr>
+      <th>author_id</th>
+      <th>tweet_count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>115911</td>
+      <td>1,286</td>
+    </tr>
+    <tr>
+      <td>120576</td>
+      <td>1,010</td>
+    </tr>
+    <tr>
+      <td>115913</td>
+      <td>563</td>
+    </tr>
+    <tr>
+      <td>116230</td>
+      <td>454</td>
+    </tr>
+    <tr>
+      <td>169172</td>
+      <td>448</td>
+    </tr>
+    <tr>
+      <td>117627</td>
+      <td>406</td>
+    </tr>
+    <tr>
+      <td>115888</td>
+      <td>332</td>
+    </tr>
+    <tr>
+      <td>116136</td>
+      <td>295</td>
+    </tr>
+    <tr>
+      <td>116421</td>
+      <td>276</td>
+    </tr>
+    <tr>
+      <td>115722</td>
+      <td>252</td>
+    </tr>
+  </tbody>
+</table>
+
 
 Summary of Insights from Scatter Plots & Customer Support Analysis
 
@@ -234,7 +383,7 @@ Customer issues are clustered using:
 - Multi-language support for global customer bases.
 
 ## Architecture 
-![](https:/raw.githubusercontent.com/abh2050/Customer_support_intelligence/blob/main/charts/mermaid-diagram-2025-03-08-050513.png)
+![](https://raw.githubusercontent.com/abh2050/Customer_support_intelligence/blob/main/charts/mermaid-diagram-2025-03-08-050513.png)
 
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
