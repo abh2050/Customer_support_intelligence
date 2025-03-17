@@ -1,4 +1,4 @@
-# Customer Support Intelligence EDA System
+# Customer Support Intelligence System
 ![DashBoard](https://github.com/abh2050/Customer_support_intelligence/blob/main/charts/dashboard.png)
 App: https://customersupportintelligence.streamlit.app/
 
